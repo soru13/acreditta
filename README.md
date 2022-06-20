@@ -12,7 +12,8 @@ ENV=dev
 docker-compose up -d dev
 ```
 
-###para producción
+### para producción
+
 primero el siguiente comando para que genere la carpeta Dist
 
 ```bash
@@ -23,14 +24,15 @@ docker-compose up -d dev
 docker-compose up -d pro
 ```
 
-### \*\*bold\*\*, `Sin Docker`.
+### `Sin Docker`.
 
 ```bash
 1. npm i
 2. npm run dev
 ```
 
-###Documentación Componentes y paginas
+### Documentación Componentes y paginas
+
 Dentro del repositorio hay una carpeta **_src/Components_** donde se encuentran los componentes de la pagina, paso a explicar cada uno de ellos en total son **_7_**
 
 También puede ver el siguiente link en youtube donde explico todo este **README** y uso de la app \*API de MARVEL\*\*:
@@ -43,7 +45,7 @@ Single Page Aplication con REACT JS donde se trabaja con programación **reactiv
 **Pagina**
 Para este caso solo hay una que controla a los demás componentes llamada Home
 
-###Componentes
+### Componentes
 
 **Detail:**
 Al dar click en un personaje de MARVEL se despliega el detalle del personaje, una descripción y un listado donde es relacionado como: series, historias, comics y eventos. Donde al dar click se muestran los titulos donde aparecen.
