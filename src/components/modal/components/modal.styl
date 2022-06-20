@@ -1,7 +1,7 @@
 #modal-container-layout
   width 100vw
   height 100vh
-  position fixed
+  position absolute
   left 0
   right 0
   top 0
@@ -11,23 +11,34 @@
   justify-items center
   z-index 1021
 .Modal
-  width 100vw
-  background  white
-  padding 20px
-  border-radius 20px
-  box-shadow 0 0 10px rgba(0,0,0,.4)
-  display grid
-  grid-template-rows 20% 80%
-  align-items center
-  height 100vh
-  justify-items center
-  .body-modal
-    display grid
-    justify-items center
+    width: 100vw;
+    background-color #121f3d
+    box-shadow: 0 0 10px rgb(0 0 0 / 40%);
+    display: grid;
+    align-items: center;
+    height: 100vh;
+    justify-items: center;
+    grid-template-rows: 20% 80%;
 .header-modal
   display grid
-  grid-template-columns 100vw
   justify-items center
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  grid-template-columns: 80% 20%;
+.body-modal
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 5% 5% 90%;
+    grid-template-columns: repeat(16, 1fr);
+    justify-items: center;
+.body-modal div
+    grid-column: span 16;
+    width: 100%;
+    text-align: center;
+.header-modal img
+    width 50%
 .Modal-close
   width 50px
   height 50px

@@ -23,11 +23,3 @@ export function openModal(type) {
     payload: type,
   }
 }
-export function searchEntities(query) {
-  return {
-    type: SEARCH_ENTITIES,
-    payload: {
-      query,
-    }
-  }
-}

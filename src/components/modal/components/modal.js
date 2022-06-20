@@ -2,27 +2,21 @@ import React from 'react';
 import './modal.styl';
 
 function Modal(props) {
-  const style = props.action === 'detalle' ? {width: "45vw", height: "35vh"} : {};
-  const styleHeader = props.action === 'detalle' ? {
-    gridTemplateColumns: "90% 10%",
-    width: "100%",
-    alignItems: "center"
-  } : {};
-  const styleButtonClose = props.action === 'detalle' ? {position: "relative"} : {};
-  const styleBody = props.action === 'agregar' ? {width: "100%", height: "100%"} : {width: "100%"};
-  const titulo = props.action === 'agregar' ? 'Agregar Cita' : 'Detalle Cita';
+  const titulo = props.title;
+  const url = props.url;
+
   return (
     <section id="modal-container-layout">
-      <div className="Modal" style={style}>
-        <section className="header-modal" style={styleHeader}>
+      <div className="Modal">
+        <section className="header-modal">
           <h1>{titulo}</h1>
+          <img src={url}/>
           <button
             onClick={props.handleClick}
             className="Modal-close"
-            style={styleButtonClose}
             />
         </section>
-        <section className="body-modal" style={styleBody}>
+        <section className="body-modal">
           {props.children}
         </section>
 

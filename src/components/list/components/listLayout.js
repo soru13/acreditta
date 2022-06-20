@@ -1,9 +1,9 @@
 import React from 'react';
-import './react.styl';
+import './list.styl';
 import PropTypes from 'prop-types';
 import HandleError from '../../error/containers/handleError';
 
-function ReactLayout({ children }) {
+function ListLayout({ children }) {
   return (
     <HandleError>
       <div className="react-container-grilla">
@@ -12,7 +12,7 @@ function ReactLayout({ children }) {
     </HandleError>
   );
 }
-ReactLayout.propTypes = {
+ListLayout.propTypes = {
   children: PropTypes.element.isRequired,
 };
-export default ReactLayout;
+export default ListLayout;

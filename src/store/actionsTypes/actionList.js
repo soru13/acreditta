@@ -1,6 +1,6 @@
-const CITAS = 'CITAS';
-export const SPECIALIST = 'SPECIALIST';
-export const PATIENTS = 'PATIENTS';
-export const PATIENT = 'PATIENT';
 
-export default CITAS;
+export const CHARACTERS = 'CHARACTERS'
+export const CHARACTER = 'CHARACTER';
+export const CHARACTERLIST = 'CHARACTERLIST';
+export const RESET = 'RESET';
+export const RESET_DETAIL = 'RESET_DETAIL';

@@ -1,109 +1,81 @@
 import IS_LOADING from '../actionsTypes/actionHome';
-import CITAS from '../actionsTypes/actionList';
-import { SPECIALIST, PATIENTS, PATIENT } from '../actionsTypes/actionList';
+import { CHARACTERS, CHARACTER, CHARACTERLIST, RESET, RESET_DETAIL } from '../actionsTypes/actionList';
 import { fetchError } from './errorAction';
 import axios from 'axios';
-import { closeModal } from './generalsAction';
-export function Done(data) {
-  return {
-    type: CITAS,
+import { openModal } from './generalsAction';
+import { PUBLIKEY, HASH } from '../constants/constans';
+
+export function DoneCharacters(data, offset, name, origen) {
+    return {
+      type: CHARACTERS,
+      payload: data.results,
+      count: data.count,
+      total: data.total,
+      offset,
+      name,
+      origen,
+    };
+  }
+export function DoneCharacter(data) {
+    return {
+    type: CHARACTER,
     payload: data
-  };
+    };
 }
-export function citas() {
-  const urlGet = '/api/citas/';
-  return (dispatch) => {
-    axios.get(urlGet)
-      .then(response => {
-        dispatch(Done(response.data))
-      })
-      .catch(error => dispatch(fetchError(error)));
-  };
+export function DoneCharacterList(data,offset,name) {
+    return {
+      type: CHARACTERLIST,
+      payload: data.results,
+      count: data.count,
+      total: data.total,
+      offset,
+      name,
+    };
+  }
+export function reset() {
+    return {
+        type: RESET,
+    };
 }
-export function DoneSpecialist(data) {
-  return {
-    type: SPECIALIST,
-    payload: data
-  };
-}
-export function getSpecialist() {
-  const urlGet = '/api/especialidades/';
-  return (dispatch) => {
-    axios.get(urlGet)
-      .then(response => {
-        dispatch(DoneSpecialist(response.data))
-      })
-      .catch(error => dispatch(fetchError(error)));
-  };
-}
-export function DonePatientlist(data) {
-  return {
-    type: PATIENTS,
-    payload: data
-  };
-}
-export function getPatientlist() {
-  const urlGet = '/api/pacientes/';
-  return (dispatch) => {
-    axios.get(urlGet)
-      .then(response => {
-        dispatch(DonePatientlist(response.data))
-      })
-      .catch(error => dispatch(fetchError(error)));
-  };
-}
-export function DonePatient(data) {
-  return {
-    type: PATIENT,
-    payload: data
-  };
-}
-export function getPatient(id) {
-  const urlGet = `/api/citas/${id}`;
-  return (dispatch) => {
-    axios.get(urlGet)
-      .then(response => {
-        dispatch(DonePatient(response.data))
-      })
-      .catch(error => dispatch(fetchError(error)));
-  };
-}
-export function newDateAppoinment(data, token) {
-  // axios.defaults.headers.common['X-CSRFTOKEN'] = token;
-  const headers = {"X-CSRFToken": token}
-  return (dispatch) => {
-    axios.post('/api/nueva_cita/', data, {headers: headers})
-      .then(response => {
-        dispatch(closeModal())
-        dispatch(citas())
-      })
-      .catch(error => dispatch(fetchError(error)));
-  };
-}
-export function editAppoinment(data, token, id) {
-  const headers = {"X-CSRFToken": token}
-  return (dispatch) => {
-    axios.put(`/api/citas/${id}/`, data, {headers: headers})
-      .then(response => {
-        dispatch(closeModal())
-        dispatch(citas())
-      })
-      .catch(error => dispatch(fetchError(error)));
-  };
-}
-export function eliminarCita(token, id) {
-  const headers = {"X-CSRFToken": token}
-  return (dispatch) => {
-    axios.delete(`/api/citas/${id}`,{headers: headers})
-      .then(response => {
-        dispatch(citas())
-        dispatch(closeModal())
-      })
-      .catch(error => dispatch(fetchError(error)));
-  };
+export function resetListCharacter() {
+    return {
+        type: RESET_DETAIL,
+    };
 }
 
-
+export function getCharacters(name, offset, origen) {
+      const urlGet = `${name}?limit=100&offset=${offset}&ts=1&apikey=${PUBLIKEY}&hash=${HASH}`;
+      return (dispatch) => {
+        axios.get(urlGet)
+          .then(response => {
+            dispatch(isLoading(false));
+            dispatch(DoneCharacters(response.data.data, offset, name, origen));
+          })
+          .catch(error => dispatch(fetchError(error)));
+      };
+ }
+export function getCharacter(id) {
+    const urlGet = `characters/${id}?0&ts=1&apikey=${PUBLIKEY}&hash=${HASH}`;
+    return (dispatch) => {
+        axios.get(urlGet)
+        .then(response => {
+            dispatch(openModal())
+            dispatch(DoneCharacter(response.data.data.results))
+        })
+        .catch(error => dispatch(fetchError(error)));
+    };
+ }
+export function getCharacterList(id,name,offset) {
+    const urlGet = `characters/${id}/${name}?limit=100&offset=${offset}&ts=1&apikey=${PUBLIKEY}&hash=${HASH}`;
+    return (dispatch) => {
+        axios.get(urlGet)
+        .then(response => {
+            dispatch(isLoading(false))
+            dispatch(DoneCharacterList(response.data.data,offset,name))
+        })
+        .catch(error => dispatch(fetchError(error)));
+    };
+}
 export default function isLoading(value) {
   return {
     type: IS_LOADING,

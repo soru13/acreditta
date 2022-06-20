@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 import IS_LOADING from '../actionsTypes/actionHome';
 
 const initialState = fromJS({
-  active: false,
+  active: true,
 });
 
 function isLoading(state = initialState, action) {

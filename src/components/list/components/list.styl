@@ -1,0 +1,55 @@
+.react-container-grilla
+    display grid
+    grid-template-columns repeat(12, 1fr)
+    width 100vw
+    justify-self center
+    grid-column-gap: 1vh;
+    grid-row-gap: 1vh;
+    .item
+        display grid
+        align-items center
+        justify-items center
+        height 17vh
+        grid-row-gap 1vh
+        grid-column span 2
+        img
+            width 100%
+            height 141px
+            border-radius inherit!important;
+    .item span
+        width 100%
+        overflow hidden
+        height 25px
+
+/* Screen sizes:
+  default: all
+  md: <900px
+  sm: <700px
+  xs: <500px
+  xxs: <320px
+*/
+
+/* Size: md */
+@media (max-width: 900px)
+    .react-container-grilla
+        grid-template-columns repeat(10, 1fr)
+        grid-gap 20px
+
+/* Size: sm */
+@media (max-width: 700px)
+    .react-container-grilla
+        grid-template-columns repeat(6, minmax(0, 1fr))
+        grid-gap 15px
+
+/* Size: xs */
+@media (max-width: 500px)
+    .react-container-grilla
+        grid-template-columns repeat(4, minmax(0, 1fr))
+        grid-gap 10px
+
+/* Size: xxs */
+@media (max-width: 320px)
+    .react-container-grilla
+        grid-template-columns repeat(2, minmax(0, 1fr));
+        grid-gap 10px
+
