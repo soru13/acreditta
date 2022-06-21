@@ -12,7 +12,7 @@ ENV=dev
 node_modules
 ```
 
-### `Con Docker`.
+### `Con Docker` (Aun no disponible pasa al siguiente paso sin docker).
 
 ```bash
 docker-compose up -d dev
