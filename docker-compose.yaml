@@ -14,7 +14,8 @@ services:
   prod:
     container_name: react-app-prod
     build:
-      context: Dockerfile.prod
+      context: .
+      dockerfile: ./Dockerfile.Prod
       args:
         ENV: ${ENV}
     depends_on:

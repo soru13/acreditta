@@ -3,4 +3,5 @@ ARG ENV=prod
 ENV ENV=${ENV}
 WORKDIR /app
 COPY ./ .
-CMD ["./bootstrap.sh"]
+RUN npm install
+CMD ["npm", "run", "dev"]

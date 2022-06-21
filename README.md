@@ -1,9 +1,15 @@
-# Empieza a desarrolloar:
+# Prueba técnica:
 
 ### Ambientación: crea el archivo .env dentro ingresa:
 
 ```bash
 ENV=dev
+```
+
+### Seguido de crear la carpeta en **node_modules** al mismo nivel (public y src):
+
+```bash
+node_modules
 ```
 
 ### `Con Docker`.
@@ -20,6 +26,8 @@ primero el siguiente comando para que genere la carpeta Dist
 docker-compose up -d dev
 ```
 
+Para puesta a produccion es obligatorio primero ejecutar el comando de arriba luego este
+
 ```bash
 docker-compose up -d pro
 ```
@@ -30,6 +38,16 @@ docker-compose up -d pro
 1. npm i
 2. npm run dev
 ```
+
+### para producción
+
+```bash
+1. npm i
+2. npm run dll
+3. npm run prod
+```
+
+La carpeta resultante **dist** es la que se pone en producción (resultado final)
 
 ### Documentación componentes y páginas
 
