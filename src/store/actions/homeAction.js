@@ -54,8 +54,11 @@ export function getCharacters(name, offset, origen) {
           .catch(error => dispatch(fetchError(error)));
       };
  }
-export function getCharacter(id) {
-    const urlGet = `characters/${id}?0&ts=1&apikey=${PUBLIKEY}&hash=${HASH}`;
+export function getCharacter(id, origen) {
+    let urlGet = `characters/${id}?0&ts=1&apikey=${PUBLIKEY}&hash=${HASH}`;
+    if (origen != 'characters') {
+        urlGet = `comics/${id}?0&ts=1&apikey=${PUBLIKEY}&hash=${HASH}`;    
+    }
     return (dispatch) => {
         axios.get(urlGet)
         .then(response => {
@@ -65,8 +68,25 @@ export function getCharacter(id) {
         .catch(error => dispatch(fetchError(error)));
     };
  }
-export function getCharacterList(id,name,offset) {
-    const urlGet = `characters/${id}/${name}?limit=100&offset=${offset}&ts=1&apikey=${PUBLIKEY}&hash=${HASH}`;
+ export function search(origen, offset, text) {
+    let urlGet = `${origen}?nameStartsWith=${text}&limit=100&offset=${offset}&ts=1&apikey=${PUBLIKEY}&hash=${HASH}`;
+    if (origen != 'characters') {
+        urlGet =  `${origen}?titleStartsWith=${text}&limit=100&offset=${offset}&ts=1&apikey=${PUBLIKEY}&hash=${HASH}`;   
+    }
+    return (dispatch) => {
+      axios.get(urlGet)
+        .then(response => {
+          dispatch(isLoading(false));
+          dispatch(DoneCharacters(response.data.data, offset, origen, origen));
+        })
+        .catch(error => dispatch(fetchError(error)));
+    };
+}
+export function getCharacterList(id,name,offset, origen) {
+    let urlGet = `characters/${id}/${name}?limit=100&offset=${offset}&ts=1&apikey=${PUBLIKEY}&hash=${HASH}`;
+    if (origen != 'characters') {
+        urlGet = `${origen}/${id}/${name}?limit=100&offset=${offset}&ts=1&apikey=${PUBLIKEY}&hash=${HASH}`;
+    }
     return (dispatch) => {
         axios.get(urlGet)
         .then(response => {

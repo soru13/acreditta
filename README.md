@@ -6,12 +6,6 @@
 ENV=dev
 ```
 
-### Seguido de crear la carpeta en **node_modules** al mismo nivel (public y src):
-
-```bash
-node_modules
-```
-
 ### `Con Docker` (Aun no disponible pasa al siguiente paso sin docker).
 
 ```bash
@@ -65,9 +59,36 @@ Para este caso solo hay una que controla a los demás componentes llamada Home
 
 ### Componentes
 
+**\_Los parametros que recibe cada componente **propTypes** y donde se vea **isRequired** es obligatorio\_**.
+
+**Inputs**
+Encargada de los inputs, select, search, etc. todo elemento de formulario.
+Aqui tenemos el buscador de personajes, al dejar de escribir se hace la petición a **API Marvel**
+Parámetros que recibe el componente:
+
+```bash
+Search.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  val: PropTypes.string,
+};
+```
+
 **Detail:**
 Al dar click en un personaje de MARVEL se despliega el detalle del personaje, una descripción y un listado donde es relacionado como: series, historias, comics y eventos. Donde al dar click se muestran los títulos donde aparecen.
 (PropsTypes): Un Id del personaje a cargar la información.
+
+Parámetros que recibe el componente:
+
+```bash
+Detalle.propTypes = {
+    stories: PropTypes.number,
+    series: PropTypes.number,
+    comics: PropTypes.number,
+    events: PropTypes.number,
+    Description: PropTypes.string,
+    id: PropTypes.number,
+}
+```
 
 **Error**
 Este componente controla los errores en grado caso un componente falle.
@@ -75,14 +96,46 @@ Este componente controla los errores en grado caso un componente falle.
 **Filter**
 Su función es filtrar por categoría los tópicos.
 
-**Inputs**
-Encargada de los inputs, select, search, etc. todo elemento de formulario.
+Parámetros que recibe el componente:
+
+```bash
+Filter.propTypes = {
+  val: PropTypes.string,
+  handleEventClick: PropTypes.func.isRequired,
+};
+```
 
 **List**
 Donde quiera que se visualice un listado de elementos se manda llamar este componente, que recibe como obligatorio (PropsTypes) un List Inmutable.
+
+Parámetros que recibe el componente:
+
+```bash
+List.propTypes = {
+    list: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object,
+        PropTypes.arrayOf(PropTypes.object),
+        PropTypes.arrayOf(PropTypes.any),
+    ]).isRequired,
+    handleCharacters: PropTypes.func,
+    handleCharacterList: PropTypes.func,
+    handleDetalle: PropTypes.func,
+    tipo: PropTypes.string.isRequired,
+};
+```
 
 **Loader**
 Cada petición al API se manda a llamar para mostrar visualmente que se están cargando los datos
 
 **Modal**
 Mostrar datos como modal que es utilizado en la página principal que hereda como hijo el componente detalle.
+
+Parámetros que recibe el componente, y como componente el que gustes
+
+```bash
+Modal.propTypes = {
+    titulo: PropTypes.number,
+    url: PropTypes.number,
+}
+```

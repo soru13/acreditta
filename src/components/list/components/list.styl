@@ -23,30 +23,38 @@
 
 /* Screen sizes:
   default: all
+  gg: <1440px
   md: <900px
   sm: <700px
   xs: <500px
   xxs: <320px
 */
+/* Size: gg */
+@media (max-width: 1440px)
+    .react-container-grilla
+        grid-template-columns repeat(8, 1fr)
+        grid-gap 20px
+    .react-container-grilla .item img
+        height 88px
 
 /* Size: md */
 @media (max-width: 900px)
     .react-container-grilla
-        grid-template-columns repeat(10, 1fr)
+        grid-template-columns repeat(6, 1fr)
         grid-gap 20px
+    .header-modal
+        width 100% !important
 
 /* Size: sm */
 @media (max-width: 700px)
     .react-container-grilla
-        grid-template-columns repeat(6, minmax(0, 1fr))
+        grid-template-columns repeat(4, minmax(0, 1fr))
         grid-gap 15px
-
 /* Size: xs */
 @media (max-width: 500px)
     .react-container-grilla
         grid-template-columns repeat(4, minmax(0, 1fr))
         grid-gap 10px
-
 /* Size: xxs */
 @media (max-width: 320px)
     .react-container-grilla

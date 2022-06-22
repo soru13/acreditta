@@ -38,14 +38,14 @@ class List extends React.Component {
             const scroll = (index == list.size -2) && <Waypoint onEnter={() => this.loadFunc(list.size)} />;
             if (tipo == 'principal') {
                 itemList.push(
-                <div className="item col-12" key={index}>
+                <div className="item" key={index} title={index}>
                         <img src={url} height="35" className="d-inline-block align-top rounded-circle" onClick={handleDetalle} id={ID}/>
                     <span className="nombre">{name}</span>
                 </div>,scroll,
                 );
             } else {
                 itemList.push(
-                    <div className="item col-12" key={index} title={index}>
+                    <div className="item" key={index} title={index}>
                         <img src={url} height="35" className="d-inline-block align-top rounded-circle" id={ID}/>
                     <span className="nombre">{name}</span>
                 </div>,scroll,
@@ -56,7 +56,6 @@ class List extends React.Component {
             <ListLayout>
                 <Fragment>
                     {itemList}
-                    
                     {
                         isLoading &&
                         (
