@@ -1,0 +1,250 @@
+b {
+  font-family: Soleil-book;
+  font-size: 16px;
+}
+h1 {
+  font-family: Brownstd;
+  font-size: 40PX;
+  line-height: 40PX;
+  margin: 0px;
+  color: #636363;
+}
+h3 {
+  font-family: Soleil-book;
+  font-size: 30PX;
+  line-height: 30px;
+  color: #999ca2;
+  margin: 0px;
+}
+h4 {
+  font-family: Soleil-book;
+  font-size: 14PX;
+  line-height: 16PX;
+  color: #636363;
+  margin: 0px;
+}
+h6 {
+  font-family: Soleil-book;
+  font-size: 16PX;
+  line-height: 16PX;
+  color: #94a7b9;
+  margin: 0px;
+}
+a {
+  text-decoration: none;
+  color: #999ca2;
+}
+p {
+  margin: 0px;
+}
+a:hover {
+  cursor: pointer;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0px;
+  font-family: Soleil;
+  font-size: 18px;
+  background-color: #121f3d;
+  color: #fff;
+}
+.react-container {
+  display: grid;
+  grid-template-rows: 7vh 5vh 1fr;
+  justify-content: center;
+}
+.loader {
+  grid-column: span 16;
+}
+
+.react-container-grilla {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  width: 100vw;
+  justify-self: center;
+  grid-column-gap: 1vh;
+  grid-row-gap: 1vh;
+}
+.react-container-grilla .item {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 17vh;
+  grid-row-gap: 1vh;
+  grid-column: span 2;
+}
+.react-container-grilla .item img {
+  width: 100%;
+  height: 141px;
+  border-radius: inherit !important;
+}
+.react-container-grilla .item span {
+  width: 100%;
+  overflow: hidden;
+  height: 25px;
+}
+/* Screen sizes:
+  default: all
+  gg: <1440px
+  md: <900px
+  sm: <700px
+  xs: <500px
+  xxs: <320px
+*/
+/* Size: gg */
+@media (max-width: 1440px) {
+  .react-container-grilla {
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 20px;
+  }
+  .react-container-grilla .item img {
+    height: 88px;
+  }
+}
+/* Size: md */
+@media (max-width: 900px) {
+  .react-container-grilla {
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+  }
+  .header-modal {
+    width: 100% !important;
+  }
+}
+/* Size: sm */
+@media (max-width: 700px) {
+  .react-container-grilla {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-gap: 15px;
+  }
+}
+/* Size: xs */
+@media (max-width: 500px) {
+  .react-container-grilla {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-gap: 10px;
+  }
+}
+/* Size: xxs */
+@media (max-width: 320px) {
+  .react-container-grilla {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 10px;
+  }
+}
+
+#modal-container-layout {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(0,0,0,0.4);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  z-index: 1021;
+}
+.Modal {
+  width: 100vw;
+  background-color: #121f3d;
+  box-shadow: 0 0 10px #000;
+  display: grid;
+  align-items: center;
+  height: 100vh;
+  justify-items: center;
+  grid-template-rows: 20% 80%;
+}
+.header-modal {
+  display: grid;
+  justify-items: center;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  grid-template-columns: 80% 20%;
+}
+.body-modal {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: repeat(16, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+.body-modal div {
+  grid-column: span 16;
+  width: 100%;
+  text-align: center;
+}
+.header-modal img {
+  width: 50%;
+}
+.Modal-close {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: #171c30;
+  color: #fff;
+  cursor: pointer;
+  justify-self: center;
+  position: absolute;
+  right: 1%;
+  top: 1%;
+}
+.Modal-close:after {
+  content: "X";
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.stories {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+
+.search {
+  grid-column: span 16;
+  width: 98%;
+  align-self: center;
+}
+.search input {
+  width: 100%;
+  border-radius: 6px;
+  border: 0px solid #fff;
+  height: 60px;
+  border: 1px solid;
+}
+.search span {
+  width: auto;
+  margin: 0px 10px;
+}
+
+.filter {
+  grid-column: span 16;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  width: 50%;
+  justify-content: space-evenly;
+}
+.button {
+  background-color: #4caf50;
+  border: none;
+  color: #fff;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button:hover {
+  background: #fff;
+  color: Black;
+}
+
