@@ -93,6 +93,11 @@ body {
   xs: <500px
   xxs: <320px
 */
+@media (min-width: 1440px) {
+  .search input {
+    height: 60px;
+  }
+}
 /* Size: gg */
 @media (max-width: 1440px) {
   .react-container-grilla {
@@ -101,6 +106,9 @@ body {
   }
   .react-container-grilla .item img {
     height: 88px;
+  }
+  .search input {
+    height: 60px;
   }
 }
 /* Size: md */
@@ -111,6 +119,12 @@ body {
   }
   .header-modal {
     width: 100% !important;
+  }
+  .filter .button {
+    padding: 5px 17px;
+  }
+  .search input {
+    height: 40px;
   }
 }
 /* Size: sm */
@@ -212,12 +226,11 @@ body {
   grid-column: span 16;
   width: 98%;
   align-self: center;
+  justify-self: center;
 }
 .search input {
-  width: 100%;
-  border-radius: 6px;
+  width: 98%;
   border: 0px solid #fff;
-  height: 60px;
   border: 1px solid;
 }
 .search span {
