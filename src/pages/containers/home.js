@@ -36,7 +36,6 @@ class Home extends React.Component {
     } else {
         if(this.timeout) clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
-          //search function
             _search(origen, 0, event.target.value);
         }, 300);
     }
@@ -51,9 +50,10 @@ class Home extends React.Component {
     _getCharacter(event.target.id, origen);
   }
   handleCharacters(name, offset) {
-    const { _getCharacters, _isLoading} = this.props;
+    const { _getCharacters, _isLoading, origen} = this.props;
     _isLoading(true);
-   _getCharacters(name,offset);
+   _getCharacters(name,offset, origen);
+
   }
   handleEventClick(name) {
     const { _getCharacters, _isLoading, _reset} = this.props;
