@@ -76,8 +76,8 @@ export function getCharacter(id, origen) {
     return (dispatch) => {
       axios.get(urlGet)
         .then(response => {
-          dispatch(isLoading(false));
-          dispatch(DoneCharacters(response.data.data, offset, origen, origen));
+            dispatch(DoneCharacters(response.data.data, offset, origen, origen));
+            dispatch(isLoading(false));
         })
         .catch(error => dispatch(fetchError(error)));
     };

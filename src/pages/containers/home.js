@@ -29,13 +29,14 @@ class Home extends React.Component {
     _closeModal();
   }
   handleChange(event) {
-    const { _saveInput, origen, _search, _getCharacters } = this.props;
+    const { _saveInput, origen, _search, _getCharacters, _isLoading } = this.props;
     _saveInput(event.target.name, event.target.value);
     if(event.target.value == ''){
         _getCharacters('characters',0,'characters');
     } else {
         if(this.timeout) clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
+            _isLoading(true);
             _search(origen, 0, event.target.value);
         }, 300);
     }
